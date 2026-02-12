@@ -79,8 +79,9 @@ class SeleniumScraper:
         
         for box in menu_boxes:
             link = box.find('a', href=True)
+            span = box.find('span')
             if link:
-                category_name = link.get_text(strip=True)
+                category_name = span.get_text(strip=True) if span else link.get_text(strip=True)
                 category_url = urljoin(self.base_url, link['href'])
                 
                 categories.append({

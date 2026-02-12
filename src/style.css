@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #e63946;
+  --color-primary-dark: #c1121f;
+  --color-primary-light: #fce4e6;
+  --color-surface: #faf9f6;
+  --color-card: #ffffff;
+  --color-text: #1a1a2e;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-border: #e5e7eb;
+  --color-border-light: #f3f4f6;
+
+  --color-plate-red: #dc2626;
+  --color-plate-red-bg: #fee2e2;
+  --color-plate-red-border: #fca5a5;
+  --color-plate-silver: #94a3b8;
+  --color-plate-silver-bg: #f1f5f9;
+  --color-plate-silver-border: #cbd5e1;
+  --color-plate-gold: #f59e0b;
+  --color-plate-gold-bg: #fef3c7;
+  --color-plate-gold-border: #fcd34d;
+  --color-plate-black: #1f2937;
+  --color-plate-black-bg: #1f2937;
+  --color-plate-black-border: #374151;
+  --color-plate-white: #6b7280;
+  --color-plate-white-bg: #ffffff;
+  --color-plate-white-border: #d1d5db;
+
+  --font-sans: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-surface);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Toast animation */
+@keyframes toast-in {
+  from { transform: translateX(-50%) translateY(20px); opacity: 0; }
+  to { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+@keyframes toast-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+.toast-enter {
+  animation: toast-in 0.3s ease, toast-out 0.3s ease 2s forwards;
+}
+
+/* Slide up animation for floating cart */
+@keyframes slide-up {
+  from { transform: translateX(-50%) translateY(100px); opacity: 0; }
+  to { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+.animate-slide-up {
+  animation: slide-up 0.3s ease;
+}
+
+/* Modal animations */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slide-up-modal {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.2s ease;
+}
+.animate-slide-up-modal {
+  animation: slide-up-modal 0.3s ease;
+}
+
+/* Hide scrollbar for filter tabs */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+
+/* Card image hover effect */
+.card-image-wrapper:hover .card-image {
+  object-fit: contain;
+  background: var(--color-border-light);
+}

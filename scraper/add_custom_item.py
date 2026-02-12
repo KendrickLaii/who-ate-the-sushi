@@ -1,3 +1,4 @@
+import os
 import logging
 from database import JSONDatabase
 
@@ -46,7 +47,8 @@ def add_custom_item():
     confirm = input("\nAdd this item? (y/n): ").strip().lower()
     
     if confirm == 'y':
-        db = JSONDatabase('scraped_data.json')
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        db = JSONDatabase(os.path.join(script_dir, 'scraped_data.json'))
         saved = db.save_data([item])
         
         if saved > 0:
